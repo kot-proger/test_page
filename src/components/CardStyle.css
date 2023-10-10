@@ -1,0 +1,12 @@
+.cstm-card {
+    max-width: 300px;
+    min-width: 150px;
+    margin: 15px 15px;
+}
+
+CardMedia {
+    min-width: 150px;
+    max-width: 300px;
+    min-height: 100px;
+    max-height: 200px;
+}

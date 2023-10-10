@@ -1,7 +1,6 @@
 import React, {Component} from "react";
-import {Card, CardContent, CardMedia, Typography} from "@material-ui/core";
 import './CardListStyles.css'
-import image from '../images/img.jpg'
+import CstmCard from './Card'
 
 class CardList extends Component {
     constructor(props) {
@@ -9,19 +8,8 @@ class CardList extends Component {
     }
     setContent = () => {
         let content = [];
-        for (let i = 0; i<10; i++) {
-            content.push (
-                <Card className={'card'}>
-                    <CardMedia
-                        component={'img'}
-                        alt={'some pic'}
-                        image={image}
-                    />
-                    <CardContent>
-                        <Typography>Some text on Card</Typography>
-                    </CardContent>
-                </Card>
-                )
+        for (let i = 0; i<20; i++) {
+            content.push ({CstmCard})
         }
         return content;
     };

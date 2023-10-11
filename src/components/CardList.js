@@ -1,23 +1,24 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import './CardListStyles.css'
 import CstmCard from './Card'
+import {Button} from "@material-ui/core";
 
-class CardList extends Component {
-    constructor(props) {
-        super(props);
+
+function CardList({content}) {
+    const [cards, setCards] = useState(content)
+
+    const handleDelete = (id) => {
+        setCards(cards.filter((card) => card.id !== id));
     }
-    setContent = () => {
-        let content = [];
-        for (let i = 0; i<20; i++) {
-            content.push ({CstmCard})
-        }
-        return content;
-    };
-    
-    render() {
-        return <div className={'card-list'}>
-            {this.setContent()}
-        </div>;
-    }
+
+    return <div className={'card-list'}>
+        <div>
+            <Button onClick={() => setCards(content)}>Refresh</Button>
+        </div>
+        {cards.map((card) => {
+            return <CstmCard key={card.id} id={card.id} handleDelete={handleDelete}/>
+        })}
+    </div>;
 }
+
 export default CardList;

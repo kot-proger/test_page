@@ -2,3 +2,8 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.card-list-btn {
+    background-color: darkgrey;
+    border: 1px;
+}

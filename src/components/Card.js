@@ -1,29 +1,35 @@
 import './CardStyle.css';
 import React from "react";
 import {useState} from "react";
-import {Card, CardMedia, CardContent, Typography, Button} from "@material-ui/core";
+import {Card, CardMedia, CardContent, Typography, Button, CardActions} from "@material-ui/core";
 
-export default function CstmCard({id, handleDelete}) {
-    const [isShown, setIsShown] = useState(true);
-
-
-    const handleClick = event => {
-        setIsShown(current => !current)
-    }
+function CstmCard({
+  id,
+  handleDelete,
+  image,
+  filesize,
+  timestamp,
+  category
+}) {
 
     return (
-    isShown && <Card className={'cstm-card'}>
-      <Button onClick={() => handleDelete(id)}>
-        Close
-      </Button>
-      <CardMedia
-        component={'img'}
-        alt={'some pic'}
-        image={'../images/img.jpg'}
-      />
-      <CardContent>
-        <Typography>Some text on Card</Typography>
-      </CardContent>
-    </Card>
+      <Card className={'cstm-card'}>
+        <CardActions className={'card-actions'}>
+          <Button onClick={() => handleDelete(id)}>
+            Close
+          </Button>
+        </CardActions>
+        <CardMedia
+          className={'card-media'}
+          component={'img'}
+          alt={category}
+          image={'http://contest.elecard.ru/frontend_data/' + image}
+        />
+        <CardContent>
+          <Typography className={'card-text'}>Yep, just some simple content ecapsulated on a card</Typography>
+        </CardContent>
+      </Card>
     );
 }
+
+export default CstmCard;

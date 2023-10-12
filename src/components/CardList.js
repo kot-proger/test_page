@@ -5,19 +5,32 @@ import {Button} from "@material-ui/core";
 
 
 function CardList({content}) {
-    const [cards, setCards] = useState(content)
+    const [cards, setCards] = useState(content);
 
     const handleDelete = (id) => {
         setCards(cards.filter((card) => card.id !== id));
     }
 
-    return <div className={'card-list'}>
+    console.log('content', content)
+    console.log('cards', cards)
+
+    return <div>
         <div>
-            <Button onClick={() => setCards(content)}>Refresh</Button>
+            <Button className={'card-list-btn'} onClick={() => setCards(content)}>Refresh</Button>
         </div>
-        {cards.map((card) => {
-            return <CstmCard key={card.id} id={card.id} handleDelete={handleDelete}/>
-        })}
+        <div className={'card-list'}>
+            {cards.map((card) => {
+                return <CstmCard
+                  key={card.id}
+                  id={card.id}
+                  handleDelete={handleDelete}
+                  image={card.image}
+                  filesize={card.filesize}
+                  timestamp={card.timestamp}
+                  category={card.category}
+                />
+            })}
+        </div>
     </div>;
 }
 

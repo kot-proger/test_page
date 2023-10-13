@@ -140,17 +140,6 @@ function CardList({content}) {
                 <IconButton variant={'outlined'} onClick={handleNextPage}><NavigateNextIcon/></IconButton>
             </div>
             <div className={'card-list'}>
-                {/*{cards.map((card) => {*/}
-                {/*    return <CstmCard*/}
-                {/*      key={card.id}*/}
-                {/*      id={card.id}*/}
-                {/*      handleDelete={handleDelete}*/}
-                {/*      image={card.image}*/}
-                {/*      filesize={card.filesize}*/}
-                {/*      timestamp={card.timestamp}*/}
-                {/*      category={card.category}*/}
-                {/*    />*/}
-                {/*})}*/}
                 {getPageCards()}
             </div>
             <div className={'page-nav-block'}>

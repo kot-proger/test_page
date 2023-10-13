@@ -18,7 +18,7 @@ function CardList({content}) {
     const [cards, setCards] = useState(content);
     const [sortType, setSortType] = useState('id-asc');
     const [sorted, setSorted] = useState(true);
-    const [pageSize, setPageSize] = useState(content.length/10);
+    const [pageSize, setPageSize] = useState(cards.length/10);
     const [currentPage, setCurrentPage] = useState(1)
 
     const handleDelete = (id) => {

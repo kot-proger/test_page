@@ -3,7 +3,28 @@
     flex-wrap: wrap;
 }
 
+.card-list-sorting {
+    display: flex;
+    justify-content: center;
+}
+
 .card-list-btn {
-    background-color: darkgrey;
-    border: 1px;
+    max-height: 40px;
+    max-width: 100px;
+    margin: 15px;
+}
+
+.card-list-radio-group {
+    margin: 15px;
+}
+
+.card-list-page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-nav-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

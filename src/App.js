@@ -6,32 +6,34 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState([]);
 
-  fetch('http://contest.elecard.ru/frontend_data/catalog.json')
+  if (loading && 0 === items.length) fetch('http://contest.elecard.ru/frontend_data/catalog.json')
     .then(response => response.json())
     .then(data => {
+      let content = [];
+      let i = 0;
       data.map((item) => {
-        items.push({
-          id: item.id,
+        content.push({
+          id: i++,
           category: item.category,
           filesize: item.filesize,
           image: item.image,
           timestamp: item.timestamp
         })
       })
+      setItems(content);
       setLoading(false);
-      console.log('content loaded', data)
     });
 
 
   return (
     (<div className="App">
       <header className="App-header">
-        <div>Some text on header</div>
+        <div>Some items with pictures</div>
       </header>
-      <body>
+      <div>
       {loading && (<h1>Loading page</h1>)}
       {!loading && (<CardList content={items}/>)}
-      </body>
+      </div>
     </div>)
   );
 }

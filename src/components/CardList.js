@@ -54,36 +54,42 @@ function CardList({content}) {
     };
 
     const sortCards = () => {
-      if (!sorted) {
-          let sortedItems;
+        if (!sorted) {
+            let sortedItems;
 
-          if ('id-asc' === sortType) {
+            if ('id-asc' === sortType) {
               sortedItems = [...cards].sort((a, b) => a.id - b.id)
-          }
-          if ('id-desc' === sortType) {
+            }
+            if ('id-desc' === sortType) {
               sortedItems = [...cards].sort((a, b) => b.id - a.id)
-          }
-          if ('time-asc' === sortType) {
+            }
+            if ('time-asc' === sortType) {
               sortedItems = [...cards].sort((a, b) => a.timestamp - b.timestamp)
-          }
-          if ('time-desc' === sortType) {
+            }
+            if ('time-desc' === sortType) {
               sortedItems = [...cards].sort((a, b) => b.timestamp - a.timestamp)
-          }
-          if ('filesize-asc' === sortType) {
+            }
+            if ('filesize-asc' === sortType) {
               sortedItems = [...cards].sort((a, b) => a.filesize - b.filesize)
-          }
-          if ('filesize-desc' === sortType) {
+            }
+            if ('filesize-desc' === sortType) {
               sortedItems = [...cards].sort((a, b) => b.filesize - a.filesize)
-          }
-          if ('cat-asc' === sortType) {
+            }
+            if ('cat-asc' === sortType) {
               sortedItems = [...cards].sort((a, b) => a.category > b.category ? 1 : -1)
-          }
-          if ('cat-desc' === sortType) {
+            }
+            if ('cat-desc' === sortType) {
               sortedItems = [...cards].sort((a, b) => a.category > b.category ? -1 : 1)
-          }
+            }
+            if ('filename-asc' === sortType) {
+                sortedItems = [...cards].sort((a, b) => a.image.slice(a.image.indexOf('/')+1) > b.image.slice(a.image.indexOf('/')+1) ? 1 : -1)
+            }
+            if ('filename-desc' === sortType) {
+                sortedItems = [...cards].sort((a, b) => a.image.slice(a.image.indexOf('/')+1) > b.image.slice(a.image.indexOf('/')+1) ? -1 : 1)
+            }
 
-          setCards(sortedItems);
-          setSorted(true);
+            setCards(sortedItems);
+            setSorted(true);
       }
     };
 
@@ -129,6 +135,8 @@ function CardList({content}) {
                         <FormControlLabel value="filesize-desc" control={<Radio />} label="Filesize Descending" />
                         <FormControlLabel value="cat-asc" control={<Radio />} label="Category Ascending" />
                         <FormControlLabel value="cat-desc" control={<Radio />} label="Category Descending" />
+                        <FormControlLabel value="filename-asc" control={<Radio />} label="Filename Ascending" />
+                        <FormControlLabel value="filename-desc" control={<Radio />} label="Filename Descending" />
                     </RadioGroup>
                 </FormControl>
             </div>

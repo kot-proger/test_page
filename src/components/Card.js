@@ -27,7 +27,7 @@ function CstmCard({
       />
       <CardContent>
         <Typography className={'card-text'}>Yep, just some simple content ecapsulated on a card</Typography>
-        <Typography className={'card-text'}>{category}</Typography>
+        <Typography className={'card-text'}>Category: {category}</Typography>
       </CardContent>
     </Card>
   );

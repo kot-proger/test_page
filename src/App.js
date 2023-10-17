@@ -2,7 +2,7 @@ import CardList from './components/CardList'
 import './App.css';
 import React, {useState} from "react";
 import {FormControl, FormControlLabel, FormLabel, Radio, RadioGroup} from "@material-ui/core";
-import TreeView from "./components/TreeView";
+import CstmTreeView from "./components/CstmTreeView";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +34,7 @@ function App() {
 
   const renderView = () => {
     if ('cards' === view) return <CardList content={items}/>;
-    if ('tree' === view) return <TreeView content={items}/>;
+    if ('tree' === view) return <CstmTreeView content={items}/>;
   }
 
   return (
